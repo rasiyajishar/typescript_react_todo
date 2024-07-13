@@ -1,5 +1,5 @@
 type Input={
-  inputValue:string;  
+   inputValue:string;  
   setInputvalue:React.Dispatch<React.SetStateAction<string>>;
 }
 

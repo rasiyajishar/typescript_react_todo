@@ -2,11 +2,14 @@
 import React, { useState } from 'react';
 import './App.css'
 import ImageHeader from './components/ImageHeader'
+import Button from './components/Button';
+import Input from './components/Input';
+import {type Items } from './types/Utils';
+import Itemlist from './components/Itemlist';
 
-type Items={
-title:string;
-id:string;
-}
+
+
+
 
 function App() {
   const [items,setItems]=useState<Items[]>([]);
@@ -29,19 +32,17 @@ const handleDelete=(id:string)=>{
 
 <div className='w-[350px]'>
   <form className='mb-5' onSubmit={handleSubmit}>
-   <input />
-    <button type='submit' className='bg-gray-700 w-full text-white '>Add</button>
+  
+
+<Input inputValue={inputValue} setInputvalue={setInputvalue} />
+   
+
+
+<Button className="bg-gray-700 w-full text-white p-2">Add</Button>
   </form>
   <div className='h-52 overflow-y-auto'>
-    {items.map((data)=>(
-
-      
-   
-<div  key={data.id}  className='flex justify-between items-center border rounded-sm border-slate-600 pl-2 mb2 mr-1 py-2'>
-  <p>{data.title}</p>
-  <button onClick={()=>handleDelete(data.id)}><img className='w-2 object-cover' src='https://cdn-icons-png.flaticon.com/128/1214/1214428.png' alt='' /></button>
-</div>
- ))}
+    
+<Itemlist items={items} setItems={setItems} />
   </div>
 
 </div>
